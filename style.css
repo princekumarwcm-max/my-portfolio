@@ -163,15 +163,15 @@ ul {
     letter-spacing: 2px;
     white-space: nowrap;
     display: inline-block;
-    animation: brand-pop-rotate 3s ease-in-out infinite;
+    animation: brand-pop 4s ease-in-out infinite;
     color: #00f3ff;
     text-shadow: 0 0 10px rgba(0, 243, 255, 0.5), 0 0 20px rgba(0, 243, 255, 0.3);
 }
 
-@keyframes brand-pop-rotate {
-    0% { transform: scale(1) rotate(-2deg); }
-    50% { transform: scale(1.1) rotate(2deg); }
-    100% { transform: scale(1) rotate(-2deg); }
+@keyframes brand-pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
 
 .dangerous-glitch {

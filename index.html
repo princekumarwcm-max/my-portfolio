@@ -329,9 +329,9 @@
                             </a>
                         </div>
                         <div class="contact-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=G-4+Balaji+enclave+unity+vihar,+sector-123,+Noida,+Uttar+Pradesh,+India" target="_blank">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Sector-123,+Noida,+Uttar+Pradesh,+India" target="_blank">
                                 <i class="fas fa-map-marker-alt"></i>
-                                <span>G-4 Balaji enclave unity vihar, sector-123, Noida, Uttar Pradesh, India</span>
+                                <span>Sector-123, Noida, Uttar Pradesh, India</span>
                             </a>
                         </div>
 
@@ -347,13 +347,13 @@
 
                 <form id="contactForm" class="contact-form glass-card" onsubmit="handleContactSubmit(event)">
                     <div class="form-group">
-                        <input type="text" id="name" placeholder="Your Name" required>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" placeholder="Your Email" required>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Send Message <i class="fas fa-paper-plane"></i></button>
                     <p id="formStatus" style="display:none; margin-top:1rem; text-align:center; color: var(--accent-cyan);"></p>

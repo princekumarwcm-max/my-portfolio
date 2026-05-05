@@ -514,31 +514,32 @@ async function handleContactSubmit(event) {
     submitBtn.disabled = true;
 
     try {
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('email', email);
-        formData.append('message', message);
-
-        const response = await fetch('https://formspree.io/f/mpqbwgwe', {
+        const response = await fetch('/api/contact', {
             method: 'POST',
-            body: formData,
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                message: message
+            }),
             headers: {
+                'Content-Type': 'application/json',
                 'Accept': 'application/json'
             }
         });
 
         if (response.ok) {
-            formStatus.textContent = 'Thank you! Your message has been sent successfully. Please check your email for a confirmation from Formspree if this is the first time.';
+            formStatus.textContent = 'Thank you! Your message has been sent successfully to Prince Kumar.';
             formStatus.style.color = 'var(--accent-cyan)';
             document.getElementById('contactForm').reset();
         } else {
-            formStatus.textContent = 'Oops! Something went wrong. Please check if your internet is working or try again later.';
+            const data = await response.json();
+            formStatus.textContent = data.error || 'Oops! Something went wrong. Please check if you have set up the GMAIL_APP_PASSWORD.';
             formStatus.style.color = 'var(--accent-pink)';
         }
         formStatus.style.display = 'block';
     } catch (error) {
         console.error('Error submitting form:', error);
-        formStatus.textContent = 'Error connecting to the server. Please try again later.';
+        formStatus.textContent = 'Connection error. Please check your internet and try again.';
         formStatus.style.color = 'var(--accent-pink)';
         formStatus.style.display = 'block';
     } finally {
