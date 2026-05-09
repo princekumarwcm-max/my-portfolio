@@ -514,7 +514,7 @@ async function handleContactSubmit(event) {
     submitBtn.disabled = true;
 
     try {
-        const response = await fetch('/api/contact', {
+        const response = await fetch('https://formspree.io/f/mpqbwgwe', {
             method: 'POST',
             body: JSON.stringify({
                 name: name,
@@ -528,12 +528,11 @@ async function handleContactSubmit(event) {
         });
 
         if (response.ok) {
-            formStatus.textContent = 'Thank you! Your message has been sent successfully to Prince Kumar.';
+            formStatus.textContent = 'Thank you! Your message has been sent successfully via Formspree.';
             formStatus.style.color = 'var(--accent-cyan)';
             document.getElementById('contactForm').reset();
         } else {
-            const data = await response.json();
-            formStatus.textContent = data.error || 'Oops! Something went wrong. Please check if you have set up the GMAIL_APP_PASSWORD.';
+            formStatus.textContent = 'Oops! There was a problem submitting your form. Please try again.';
             formStatus.style.color = 'var(--accent-pink)';
         }
         formStatus.style.display = 'block';
